@@ -1,0 +1,9 @@
+services: 
+  egraph:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: egraph
+    
+    ports:
+      - "8001:8001"

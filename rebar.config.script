@@ -21,7 +21,7 @@ io:format(Fd, "branch() -> <<\"~s\">>.\n\n", [CurrentBranch]).
 io:format(Fd, "status() -> <<\"~s\">>.\n\n", [LocalChanges]).
 file:close(Fd).
 
-
+io:format("OS Type ~p~n",[os:type()]),
 case os:type() of
     {win32, _} ->
         JiffyOverride = {override, jiffy, [

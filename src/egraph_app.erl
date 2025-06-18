@@ -65,7 +65,7 @@ start(_StartType, _StartArgs) ->
 
     %% setup zlib dict
     egraph_zlib_util:init_zlib_dictionaries(),
-
+    io:format("Hello from my_erlang_project in Docker!~n"),
     %% setup caches
     {ok, Caches} = application:get_env(?APPLICATION_NAME, caches),
     lists:foreach(fun({CacheName, CacheOptions}) ->
