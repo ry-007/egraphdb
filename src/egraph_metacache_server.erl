@@ -144,8 +144,8 @@ handle_cast(_Msg, State) ->
 %%                                   {stop, Reason, State}
 %% @end
 %%--------------------------------------------------------------------
-handle_info({timeout, _R, tick},
-            #state{ref = _R,
+handle_info({timeout, _, tick},
+            #state{ref = _,
                    timeout_msec = TimeoutMsec,
                    latest_compression_id = CompressionId}
             = State) ->

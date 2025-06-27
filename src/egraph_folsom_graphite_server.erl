@@ -164,8 +164,8 @@ handle_cast(_Msg, State) ->
 %%                                   {stop, Reason, State}
 %% @end
 %%--------------------------------------------------------------------
-handle_info({timeout, _R, tick},
-            #state{ref = _R, interval = Interval, sock = Sock,
+handle_info({timeout, _, tick},
+            #state{ref = _, interval = Interval, sock = Sock,
                    host = _Host, port = _Port, bucket = _Bucket,
                    vm_metrics = VMSpec, dimensions = Dimensions,
                    archived_counters = ArchivedCounters,
@@ -249,7 +249,7 @@ do_metrics(Dimensions, [{N, [{type, histogram} | _]} | Spec], ArchivedCounters, 
                    case proplists:get_value(n, Hist) of
                        0 ->
                            Socket;
-                       0.0 ->
+                       +0.0 ->
                            Socket;
                        Count when Count > 0 ->
                            case folsom_metric_to_parts(metric_name(N)) of
@@ -307,7 +307,7 @@ do_metrics(Dimensions,
             %% mark them as null (or 0 or 0.0)
             Socket1 = case DeltaCount of
                        0 -> Socket;
-                       0.0 -> Socket;
+                       +0.0 -> Socket;
                        _ ->
                            case folsom_metric_to_parts(metric_name(N)) of
                                undefined ->

@@ -132,8 +132,8 @@ handle_cast(_Msg, State) ->
 %%                                   {stop, Reason, State}
 %% @end
 %%--------------------------------------------------------------------
-handle_info({timeout, _R, tick},
-            #state{ref = _R, retry_timeout_msec = TimeoutMsec,
+handle_info({timeout, _, tick},
+            #state{ref = _, retry_timeout_msec = TimeoutMsec,
                    remaining_palma_pools = RemainingPalmaPools}
             = State) ->
     lager:debug(?LAGER_ATTRS,
