@@ -156,8 +156,8 @@ handle_cast(_Msg, State) ->
 %%                                   {stop, Reason, State}
 %% @end
 %%--------------------------------------------------------------------
-handle_info({timeout, _R, tick},
-            #state{ref = _R, timeout_msec = _TimeoutMsec}
+handle_info({timeout, _, tick},
+            #state{ref = _, timeout_msec = _TimeoutMsec}
             = State) ->
     lager:debug(?LAGER_ATTRS, "[~p] ~p refreshing", [self(), ?MODULE]),
     %%process_tick(TimeoutMsec, State);

@@ -134,8 +134,8 @@ handle_cast(_Msg, State) ->
 %%                                   {stop, Reason, State}
 %% @end
 %%--------------------------------------------------------------------
-handle_info({timeout, _R, tick},
-            #state{ref = _R, interval = FlushInterval,
+handle_info({timeout, _, tick},
+            #state{ref = _, interval = FlushInterval,
                    vm_metrics = VMSpec, prefix = Prefix,
                    archived_counters = ArchivedCounters}
             = State) ->

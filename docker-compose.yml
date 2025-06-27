@@ -1,0 +1,11 @@
+
+services:
+  egraph:
+    build:
+      context: .         # Build context is the current directory
+      dockerfile: Dockerfile # Use the specified Dockerfile
+    container_name: egraph    # Name of the running container
+    image: egraph:latest      # Tag for the built image
+
+    ports:
+      - "8001:8001"     # Map host port 8001 to container port 8001

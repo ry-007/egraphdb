@@ -302,7 +302,7 @@ hash_password(Password, Salt) ->
                          Salt :: binary()) ->
                             {ok, binary()}.
 hash_password_hmac(Key, Password, Salt) ->
-    {ok, crypto:hmac(sha, Key, <<Password/binary, Salt/binary>>)}.
+    {ok, crypto:mac(hamc, sha, Key, <<Password/binary, Salt/binary>>)}.
 
 %%--------------------------------------------------------------------
 %% @doc
